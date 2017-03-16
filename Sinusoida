@@ -1,0 +1,20 @@
+package funkcije_vezba;
+
+public class Sinusoida extends Funkcija{
+	
+	Clan objekat;
+	
+	// kostruktor
+	public Sinusoida(double x, Clan objekat) {
+		super(x);
+		this.objekat = objekat;
+	}
+	
+	public double vrednost() {
+		return objekat.getA() * Math.sin(objekat.getB() * super.getX() * Math.PI);
+	}
+	
+	public String toString() {
+		return super.toString() + objekat.getA() + "*sin(" + objekat.getB() + "*" + x + "*PI)";
+	}
+}
