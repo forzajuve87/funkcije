@@ -1,0 +1,60 @@
+package funkcije_vezba;
+
+import java.util.Scanner;
+
+public class TestFunkcije {
+	
+	public static void main(String args[]) {
+		Clan objekat;
+		int a, b, dimenzija_niza;
+		double x;
+		String s;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("----------PRAG----------");
+		System.out.println("Unesite a:");
+		a = sc.nextInt();
+		System.out.println("Unesite b:");
+		b = sc.nextInt();
+		objekat = new Clan(a, b);
+		System.out.println(objekat);
+		System.out.println("------------------------");
+		
+		System.out.println("Unesite vrednost x izmedju 0 i 2:");
+		x = sc.nextDouble();
+		System.out.println("Unesite funkciju (s-sinusoida, z-zbir):");
+		sc.nextLine();
+		s = sc.nextLine();
+
+		if(s.equals("s")) {
+			System.out.println("Unesite a: ");
+			a = sc.nextInt();
+			System.out.println("Unesite b: ");
+			b = sc.nextInt();
+			
+			objekat = new Clan(a, b);
+			Funkcija sinus = new Sinusoida(x, objekat);
+			System.out.println(sinus);
+			System.out.printf("Vrednost: %.2f", sinus.vrednost());
+		}
+		else {
+			System.out.println("Unesite broj clanova zbira: ");
+			dimenzija_niza = sc.nextInt();
+			Clan niz[] = new Clan[dimenzija_niza];
+			
+			for(int i=0; i<dimenzija_niza; i++) {
+				System.out.println("Unesite a za " + (i+1) + "." + " clan:");
+				a = sc.nextInt();
+				System.out.println("Unesite b za " + (i+1) + "." + " clan:");
+				b = sc.nextInt();
+				niz[i] = new Clan(a, b);
+			}
+			
+			Funkcija zbir = new ZbirSinusoida(x, niz);
+			System.out.println(zbir);
+			System.out.printf("Vrednost: %.2f", zbir.vrednost());
+		}
+		sc.close();
+	}
+
+}
