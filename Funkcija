@@ -1,0 +1,25 @@
+package funkcije_vezba;
+
+public abstract class Funkcija {
+
+	double x;
+		
+	// kostruktor
+	public Funkcija(double x) {
+		this.x = x;
+	}
+		
+	// set i get metode
+	public void setX(double x) {
+		this.x = x;
+	}
+	public double getX() {
+		return this.x;
+	}
+	
+	public abstract double vrednost();
+	
+	public String toString() {
+		return "Funkcija:\n";
+	}
+}
